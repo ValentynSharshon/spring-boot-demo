@@ -1,0 +1,29 @@
+# Server configuration
+server:
+  port: 8080
+
+# Database configuration
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    open-in-view: false
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/spring_boot_demo?createDatabaseIfNotExist=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+# Logger configuration
+logging:
+  file:
+    name: logs/app.log
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+    file: "%d %-5level [%thread] %logger : %msg%n"
+  level:
+    org:
+      springframework:
+        web: info
+      hibernate: debug
