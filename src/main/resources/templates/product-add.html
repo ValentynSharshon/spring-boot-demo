@@ -11,7 +11,13 @@
 
         <div class="container mt-5 mb-5">
             <h1 th:text="${title}" class="mb-5"></h1>
-            <h2>Ok!</h2>
+
+            <form th:method="POST" th:action="@{/products/add}" th:object="${product}">
+                <input type="text" name="name" placeholder="Input product name" class="form-control" required><br/>
+                <input type="number" name="cost" placeholder="Input product cost" class="form-control" required><br/>
+
+                <button type="submit" class="btn btn-success">Create product</button>
+            </form>
         </div>
     </body>
 </html>
